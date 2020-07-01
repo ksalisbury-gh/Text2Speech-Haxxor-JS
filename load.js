@@ -1,8 +1,9 @@
-const voices = require('./info').voices;
+const voices = require('./info');
 const qs = require('querystring');
 const https = require('https');
 const http = require('http');
 const get = require('./get');
+const brotli = require('brotli');
 
 module.exports = function (voiceName, text) {
 	return new Promise((res, rej) => {
@@ -43,7 +44,6 @@ module.exports = function (voiceName, text) {
 						host: 'www.voiceforge.com',
 						path: `/demos/createAudio.php?${q}`,
 						headers: { Cookie: cookie },
-						method: 'GET',
 					}, r => {
 						r.on('data', b => buffers.push(b));
 						r.on('end', () => {
@@ -73,7 +73,6 @@ module.exports = function (voiceName, text) {
 				var req = https.get({
 					host: 'cache-a.oddcast.com',
 					path: `/tts/gen.php?${q}`,
-					method: 'GET',
 					headers: {
 						Referer: 'https://www.vocalware.com/index/demo',
 						Origin: 'https://www.vocalware.com',
@@ -135,7 +134,6 @@ module.exports = function (voiceName, text) {
 				console.log(http.get({
 					host: 'vaassl3.acapela-group.com',
 					path: `/Services/AcapelaTV/Synthesizer?${q}`,
-					method: 'GET',
 				}, r => {
 					var buffers = [];
 					r.on('data', d => buffers.push(d));
@@ -143,11 +141,67 @@ module.exports = function (voiceName, text) {
 						const html = Buffer.concat(buffers);
 						const beg = html.indexOf('&snd_url=') + 9;
 						const end = html.indexOf('&', beg);
-						const loc = `https${html.subarray(beg + 4, end).toString()}`;
+						const sub = html.subarray(beg + 4, end).toString();
+						get(`https${sub}`).then(res).catch(rej);
+					});
+					r.on('error', rej);
+				}));
+				break;
+			}
+			case 'readloud': {
+				const req = https.request({
+					host: 'readloud.net',
+					path: voice.arg,
+					method: 'POST',
+					port: '443',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+				}, r => {
+					var buffers = [];
+					r.on('data', d => buffers.push(d));
+					r.on('end', () => {
+						const html = Buffer.concat(buffers);
+						const beg = html.indexOf('/tmp/');
+						const end = html.indexOf('.mp3', beg) + 4;
+						const sub = html.subarray(beg, end).toString();
+						const loc = `https://readloud.net${sub}`;
+						get(loc).then(res).catch(rej);
+					});
+					r.on('error', rej);
+				});
+				req.end(qs.encode({
+					but1: text,
+					but: 'Enviar',
+				}));
+				break;
+			}
+			case 'cereproc': {
+				const req = https.request({
+					hostname: 'www.cereproc.com',
+					path: '/themes/benchpress/livedemo.php',
+					method: 'POST',
+					headers: {
+						"content-type": "text/xml",
+						'accept-encoding': 'gzip, deflate, br',
+						'origin': 'https://www.cereproc.com',
+						'referer': 'https://www.cereproc.com/en/products/voices',
+						'x-requested-with': 'XMLHttpRequest',
+						'cookie': 'Drupal.visitor.liveDemo=666',
+					},
+				}, r => {
+					var buffers = [];
+					r.on('data', d => buffers.push(d));
+					r.on('end', () => {
+						const xml = String.fromCharCode.apply(null, brotli.decompress(Buffer.concat(buffers)));
+						const beg = xml.indexOf('https://cerevoice.s3.amazonaws.com/');
+						const end = xml.indexOf('.mp3', beg) + 4;
+						const loc = xml.substr(beg, end - beg).toString();
 						get(loc).then(res).catch(rej);
 					})
 					r.on('error', rej);
-				}));
+				});
+				req.end(`<speakExtended key='666'><voice>${voice.arg}</voice><text>${text}</text><audioFormat>mp3</audioFormat></speakExtended>`);
 				break;
 			}
 		}
