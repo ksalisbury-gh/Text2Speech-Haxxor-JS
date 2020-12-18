@@ -6,7 +6,7 @@
 	"configurations": [
 		{
 			"args": [
-				 "joey",
+				 "ryan",
 				 "Evil 666",
 				 "test.mp3"
 			],
@@ -16,7 +16,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}\\main.js"
+			"program": "${workspaceFolder}\\load.js"
 		}
 	]
 }
