@@ -156,7 +156,7 @@ module.exports = (voiceName, text) => {
 				https.get(
 					{
 						host: "text-to-speech-demo.ng.bluemix.net",
-						path: `/api/v1/synthesize?${q}`,
+						path: `/api/v3/synthesize?${q}`,
 					},
 					(r) => {
 						var buffers = [];
@@ -299,8 +299,6 @@ module.exports = (voiceName, text) => {
                         r.on("end", () => {
 							const mp3 = Buffer.concat(buffers).toString();
 							const loc = `https://www.texttomp3.online/audio_tmp/${mp3}`
-							console.log("Successfully retrieved MP3 stream:");
-							console.log(loc);
 							get(loc).then(res).catch(rej);
 						});
 						r.on("error", rej);

@@ -45,4 +45,4 @@ if (args.length > 4) {
 				res.end();
 			}
 		})
-		.listen(process.env.PORT || process.env.SERVER_PORT || 666);
+		.listen(process.env.PORT || process.env.SERVER_PORT || 80);
