@@ -25,7 +25,7 @@ if (args.length > 4) {
 	const t = {};
 	for (let i in info.voices) {
 		let l = info.voices[i].language;
-		(t[l] = t[l] ?? new Set()).add(i);
+		(t[l] = t[l] || new Set()).add(i);
 	}
 	console.dir(t, {
 		maxArrayLength: null,
@@ -45,4 +45,4 @@ if (args.length > 4) {
 				res.end();
 			}
 		})
-		.listen(process.env.PORT || process.env.SERVER_PORT || 80);
+		.listen(process.env.PORT || process.env.SERVER_PORT || 666);
