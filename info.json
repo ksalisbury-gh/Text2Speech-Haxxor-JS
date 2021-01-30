@@ -1,5 +1,13 @@
 {
 	"voices": {
+		"gwyneth1": {
+			"country": "GB",
+			"language": "en",
+			"gender": "F",
+			"source": "readloud",
+			"arg": "/english/american/25-female-voice-gwyneth.html",
+			"desc": "Gwyneth (English)"
+		},
 		"slt": {
 			"country": "US",
 			"language": "en",
