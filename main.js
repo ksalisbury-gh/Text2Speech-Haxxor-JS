@@ -280,6 +280,70 @@ module.exports = (voiceName, text) => {
 				);
 				break;
 			}
+			case "festival": {
+                var req = https.request({
+                        hostname: "texttomp3.online",
+                        path: "/php/logic/textToSpeech.php",
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF8",
+							Host: "www.texttomp3.online",
+							Origin: "https://www.texttomp3.online",
+							Referer: "https://www.texttomp3.online/",
+							"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
+                        },
+                    },
+                    (r) => {
+						var buffers = [];
+						r.on("data", (b) => buffers.push(b));
+                        r.on("end", () => {
+							const mp3 = Buffer.concat(buffers).toString();
+							const loc = `https://www.texttomp3.online/audio_tmp/${mp3}`
+							console.log("Successfully retrieved MP3 stream:");
+							console.log(loc);
+							get(loc).then(res).catch(rej);
+						});
+						r.on("error", rej);
+					});
+                    req.write(qs.encode({
+                        msg: text,
+                        voice: voice.arg,
+						usebackmusic: 0,
+						backmusicfile: "",
+						backmusicvolume: ""
+                    }));
+					req.end();
+					break;
+			}
+			case "wavenet": {
+                var req = https.request({
+                        hostname: "texttospeechapi.wideo.co",
+                        path: "/api/wideo-text-to-speech",
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+							Origin: "https://texttospeech.wideo.co",
+							Referer: "https://texttospeech.wideo.co/",
+							"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
+                        },
+                    },
+                    (r) => {
+						var buffers = [];
+						r.on("data", (b) => buffers.push(b));
+                        r.on("end", () => {
+							const json = Buffer.concat(buffers).toString();
+							const beg = json.indexOf('"url":') + 7;
+					        const end = json.indexOf('"}}', beg);
+					        const sub = json.substring(beg, end);
+							console.log(sub);
+							get(sub).then(res).catch(rej);
+						});
+						r.on("error", rej);
+					});
+					req.write(`{"data":{"text":"${text}","speed":1,"voice":"${voice.arg}"}}`);
+					req.end();
+					break;
+			}
 			/*
 			case "acapela": {
 				var q = qs.encode({

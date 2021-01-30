@@ -1,5 +1,37 @@
 {
 	"voices": {
+		"slt": {
+			"country": "US",
+			"language": "en",
+			"gender": "F",
+			"source": "festival",
+			"arg": "27",
+			"desc": "SLT"
+		},
+		"bdl": {
+			"country": "US",
+			"language": "en",
+			"gender": "M",
+			"source": "festival",
+			"arg": "23",
+			"desc": "BDL"
+		},
+		"rms": {
+			"country": "US",
+			"language": "en",
+			"gender": "M",
+			"source": "festival",
+			"arg": "22",
+			"desc": "RMS"
+		},
+		"jmk": {
+			"country": "US",
+			"language": "en",
+			"gender": "M",
+			"source": "festival",
+			"arg": "24",
+			"desc": "JMK"
+		},
 		"ella": {
 			"country": "US",
 			"language": "en",
@@ -3616,7 +3648,6 @@
 			"arg": "ukenglishmale",
 			"desc": "Oliver (SVOX)"
 		},
-
 		"en-US-Standard-B": {
 			"country": "US",
 			"language": "en",
