@@ -2576,6 +2576,14 @@
 			"arg": "/turkish/20-kadın-sesi-filiz.html",
 			"desc": "Filiz"
 		},
+		"filiz": {
+			"country": "TR",
+			"language": "tr",
+			"gender": "F",
+			"source": "polly1",
+			"arg": "Filiz",
+			"desc": "Filiz"
+		},
 		"ada1": {
 			"country": "NL",
 			"language": "nl",
