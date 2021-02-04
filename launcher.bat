@@ -1,10 +1,6 @@
 @echo off
 title Text2Speech-Haxxor-JS
 
-:launch
-echo Running Node.js...
-npm start
-
 if exist "node_modules\" (
 echo Packages are already installed.
 echo:
@@ -18,3 +14,7 @@ echo Packages successfully installed!
 echo:
 goto launch
 )
+
+:launch
+echo Running Node.js...
+npm start
