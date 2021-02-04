@@ -3,10 +3,9 @@ Extracted and modified from the source of GoAnimate Wrapper, this solution outpu
 
 ## Option 1 (HTTP Request)
 1. Clone/download/unzip the solution.
-2. Run `npm install` to install that one dependency some of the voices need.
-3. Run the solution using Node.JS without additional parameters: `npm start`.
-4. Send a GET request to `http://localhost:666/tts.mp3?voice={VOICE}&text={TEXT}`, *substituting whatever is contained in the curly braces*.
-5. Save the resulting `mp3` stream to a file for playback.
+2. Run `launcher.bat`. It will install the needed dependency for some of the voices if not detected and THEN run Node.js, otherwise, if the dependencies are already installed, it'll just run Node.js right away.
+3. Send a GET request to `http://localhost:666/tts.mp3?voice={VOICE}&text={TEXT}`, *substituting whatever is contained in the curly braces*.
+4. Save the resulting `.mp3` stream to a file for playback.
 
 ## Option 2 (Execute `node`)
 1. Clone/download/unzip the solution.
