@@ -184,7 +184,7 @@ module.exports = (voiceName, text) => {
 				);
 				break;
 			}
-			case "acapela": {
+			/* case "acapela": {
 				var buffers = [];
 				var acapelaArray = [];
 				for (var c = 0; c < 15; c++) acapelaArray.push(~~(65 + Math.random() * 26));
@@ -253,7 +253,45 @@ module.exports = (voiceName, text) => {
 					})
 				);
 				break;
-			}
+			} */
+            case "acapela": {
+                var buffers = [];
+                var req = https.request({
+                        hostname: "acapela-box.com",
+                        path: "/AcaBox/dovaas.php",
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+							Cookie: "acabox=e2a9td1c6h3r45ej48q5heq5s3",
+                        },
+                    },
+                    (r) => {
+                        r.on("data", (b) => buffers.push(b));
+                        r.on("end", () => {
+                            const json = Buffer.concat(buffers);
+							const beg = json.indexOf(',"snd_url":"') + 12;
+							const end = json.indexOf('",', beg);
+							const sub = json.subarray(beg, end).toString();
+							console.log("Successfully retrieved MP3 stream:");
+							console.log(sub);
+							get(sub).then(res).catch(rej);
+                        });
+                    }
+                );
+                req.write(qs.encode({
+                    text: text,
+                    voice: voice.arg,
+					listen: 1,
+					format: "MP3",
+					codecMP3: 1,
+					spd: 180,
+					vct: 100,
+					byline: 0,
+					ts: 666
+                }));
+                req.end();
+                break;
+            }
 			case "acapelaOld": {
 				var q = qs.encode({
 					inputText: base64.encode(text),
