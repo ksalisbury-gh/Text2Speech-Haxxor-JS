@@ -25,22 +25,22 @@ module.exports = (voiceName, text) => {
 					fallbackLanguage: 0,
 					voice: voice.arg,
 					rate: 0,
-					key: "679ce899-c933-4967-bb9a-1579db309ed3",
+					key: "e43e82ea-457c-4c96-813a-b6e4a9a2a6d3",
+					d: true,
 					whisper: false,
 					soft: false,
 					wordbreakms: 0,
 					volume: 0,
 					pitch: 0,
-					marksid: "4dcb95d-ca1b-4fcc-9f3a-2fc65bcd70f4",
+					marksid: "15d1f080-a12e-4ffa-927b-b8082c675bb3",
 					format: "mp3",
                 });
                 var req = https.get({
                         host: "talkify.net",
                         path: `/api/internal/speech?${q}`,
                         headers: {
-							Origin: "https://talkify.net",
-                            Referer: "https://talkify.net/web-reader-read-any-website-aloud",
-							"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
+                            referer: "https://talkify.net/",
+							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
                         },
                     },
                     (r) => {
