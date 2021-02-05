@@ -26,7 +26,11 @@ module.exports = (voiceName, text) => {
                         method: "POST",
                         headers: {
 							"content-type": "application/json",
+							cookie: "__cfduid=dea5a80a27d2fbaa14bb2f3c006e2b6401612476329; connect.sid=s%3AaPvH6lwiFtj6xbRGpiXUtRObjiNSJdUE.0IoDTJibP7XtLMTLt3DGFlOfv4Nee%2BN%2B0eQvsr9fWm0; __stripe_mid=0a37ccc8-cc13-474d-97da-aa0a5f9f47398bdf7a; __stripe_sid=d7b84afb-50aa-4813-8e33-d69585f09dd94ce8c7",
+							"csrf-token": "",
+                            origin: "https://voicemaker.in",
 							referer: "https://voicemaker.in/",
+							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
                             "x-requested-with": "XMLHttpRequest",
                         },
                     },
@@ -56,7 +60,11 @@ module.exports = (voiceName, text) => {
                         method: "POST",
                         headers: {
 							"content-type": "application/json",
+							cookie: "__cfduid=dea5a80a27d2fbaa14bb2f3c006e2b6401612476329; connect.sid=s%3AaPvH6lwiFtj6xbRGpiXUtRObjiNSJdUE.0IoDTJibP7XtLMTLt3DGFlOfv4Nee%2BN%2B0eQvsr9fWm0; __stripe_mid=0a37ccc8-cc13-474d-97da-aa0a5f9f47398bdf7a; __stripe_sid=d7b84afb-50aa-4813-8e33-d69585f09dd94ce8c7",
+							"csrf-token": "",
+                            origin: "https://voicemaker.in",
 							referer: "https://voicemaker.in/",
+							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
                             "x-requested-with": "XMLHttpRequest",
                         },
                     },
