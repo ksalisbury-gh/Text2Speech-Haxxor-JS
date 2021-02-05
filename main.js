@@ -46,6 +46,34 @@ module.exports = (voiceName, text) => {
 					req.end();
 					break;
 			}
+			case "pollyNeural": {
+                var req = https.request({
+                        hostname: "voicemaker.in",
+                        path: "/voice/standard",
+                        method: "POST",
+                        headers: {
+							"content-type": "application/json",
+                            "x-requested-with": "XMLHttpRequest",
+                        },
+                    },
+                    (r) => {
+						var buffers = [];
+						r.on("data", (b) => buffers.push(b));
+                        r.on("end", () => {
+							const json = Buffer.concat(buffers);
+							const beg = json.indexOf('"path":') + 9;
+					        const end = json.indexOf('",', beg);
+					        const sub = json.subarray(beg, end).toString();
+							console.log("Successfully retrieved MP3 stream:");
+							console.log(`https://voicemaker.in${sub}`);
+							get(`https://voicemaker.in${sub}`).then(res).catch(rej);
+						});
+						r.on("error", rej);
+					});
+					req.write(`{"Engine":"neural","Provider":"ai101","OutputFormat":"mp3","VoiceId":"${voice.arg}","LanguageCode":"${voice.language}-${voice.country}","SampleRate":"22050","effect":"default","master_VC":"advanced","speed":"0","master_volume":"0","pitch":"0","Text":"${text}","TextType":"text","fileName":""}`);
+					req.end();
+					break;
+			}
             case "polly": {
                 var buffers = [];
                 var req = https.request({

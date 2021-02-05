@@ -2574,7 +2574,7 @@
 			"gender": "F",
 			"source": "readloud",
 			"arg": "/turkish/20-kadın-sesi-filiz.html",
-			"desc": "Filiz"
+			"desc": "Filiz (Old)"
 		},
 		"filiz": {
 			"country": "TR",
@@ -3359,6 +3359,14 @@
 			"source": "polly1",
 			"arg": "Matthew",
 			"desc": "Matthew"
+		},
+		"kevin1": {
+			"country": "US",
+			"language": "en",
+			"gender": "M",
+			"source": "pollyNeural",
+			"arg": "Kevin",
+			"desc": "Kevin (Polly)"
 		},
 		"joanna": {
 			"country": "US",
