@@ -1,5 +1,5 @@
 @echo off
-title Text2Speech-Haxxor-JS
+title Text2Speech-Haxxor-JS Launcher
 
 if exist "node_modules\" (
 echo Packages are already installed.
@@ -17,4 +17,5 @@ goto launch
 
 :launch
 echo Running Node.js...
+start "" "http://localhost:666/tts.mp3?voice=joey&text=Welcome+to+Text2Speech-Haxxor-JS."
 npm start

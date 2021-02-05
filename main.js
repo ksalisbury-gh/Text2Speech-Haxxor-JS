@@ -18,40 +18,34 @@ module.exports = (voiceName, text) => {
 	return new Promise(async (res, rej) => {
 		const voice = voices[voiceName];
 		switch (voice.source) {
-            case "polly1": {
-                var q = qs.encode({
-                    texttype: "text",
-					text: text,
-					fallbackLanguage: 0,
-					voice: voice.arg,
-					rate: 0,
-					key: "e43e82ea-457c-4c96-813a-b6e4a9a2a6d3",
-					d: true,
-					whisper: false,
-					soft: false,
-					wordbreakms: 0,
-					volume: 0,
-					pitch: 0,
-					marksid: "15d1f080-a12e-4ffa-927b-b8082c675bb3",
-					format: "mp3",
-                });
-                var req = https.get({
-                        host: "talkify.net",
-                        path: `/api/internal/speech?${q}`,
+			case "polly1": {
+                var req = https.request({
+                        hostname: "voicemaker.in",
+                        path: "/voice/standard",
+                        method: "POST",
                         headers: {
-                            referer: "https://talkify.net/",
-							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
+							"content-type": "application/json",
+                            "x-requested-with": "XMLHttpRequest",
                         },
                     },
                     (r) => {
-                        var buffers = [];
-                        r.on("data", (d) => buffers.push(d));
-                        r.on("end", () => res(Buffer.concat(buffers)));
-                        r.on("error", rej);
-                    }
-                );
-                break;
-            }
+						var buffers = [];
+						r.on("data", (b) => buffers.push(b));
+                        r.on("end", () => {
+							const json = Buffer.concat(buffers);
+							const beg = json.indexOf('"path":') + 9;
+					        const end = json.indexOf('",', beg);
+					        const sub = json.subarray(beg, end).toString();
+							console.log("Successfully retrieved MP3 stream:");
+							console.log(`https://voicemaker.in${sub}`);
+							get(`https://voicemaker.in${sub}`).then(res).catch(rej);
+						});
+						r.on("error", rej);
+					});
+					req.write(`{"Engine":"standard","Provider":"ai101","OutputFormat":"mp3","VoiceId":"${voice.arg}","LanguageCode":"${voice.language}-${voice.country}","SampleRate":"22050","effect":"default","master_VC":"advanced","speed":"0","master_volume":"0","pitch":"0","Text":"${text}","TextType":"text","fileName":""}`);
+					req.end();
+					break;
+			}
             case "polly": {
                 var buffers = [];
                 var req = https.request({
