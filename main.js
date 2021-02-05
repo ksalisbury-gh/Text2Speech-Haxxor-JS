@@ -21,10 +21,12 @@ module.exports = (voiceName, text) => {
 			case "polly1": {
                 var req = https.request({
                         hostname: "voicemaker.in",
+						port: "443",
                         path: "/voice/standard",
                         method: "POST",
                         headers: {
 							"content-type": "application/json",
+							referer: "https://voicemaker.in/",
                             "x-requested-with": "XMLHttpRequest",
                         },
                     },
@@ -49,10 +51,12 @@ module.exports = (voiceName, text) => {
 			case "pollyNeural": {
                 var req = https.request({
                         hostname: "voicemaker.in",
+						port: "443",
                         path: "/voice/standard",
                         method: "POST",
                         headers: {
 							"content-type": "application/json",
+							referer: "https://voicemaker.in/",
                             "x-requested-with": "XMLHttpRequest",
                         },
                     },
