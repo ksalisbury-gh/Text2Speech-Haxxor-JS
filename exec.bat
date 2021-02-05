@@ -1,27 +1,7 @@
 @echo off
 title Text2Speech-Haxxor-JS
+
 set FILEPATH=%cd%\audio
-
-echo Before we get started, let's make sure Node.js is running.
-echo:
-echo Press 0 if Node.js isn't running right now.
-echo Otherwise, press 1.
-echo:
-set /p RUN_NODEJS= Option: 
-echo:
-if %RUN_NODEJS%==0 (
-echo Opening the launcher...
-echo:
-start %cd%\launcher.bat
-PING -n 3 127.0.0.1>nul
-goto main
-) else if %RUN_NODEJS%==1 (
-goto main
-) else (
-echo You're supposed to choose.
-set /p RUN_NODEJS= Option: 
-)
-
 
 :main
 echo Enter the name of the voice you'd like to use.
@@ -38,7 +18,7 @@ echo Press 2 if you're using the save to local method
 echo:
 set /p METHOD= Method:
 if %METHOD%==1 (
-goto get
+goto nodejs
 ) else if %METHOD%==2 (
 goto mp3
 ) else (
@@ -46,7 +26,30 @@ echo You're supposed to choose.
 set /p METHOD= Option: 
 )
 
-
+:nodejs
+echo Let's make sure Node.js is running.
+echo:
+echo Running the launcher is the only way you
+echo will be able to use the GET method.
+echo:
+echo Press 0 if Node.js isn't running right now.
+echo Otherwise, press 1.
+echo:
+set /p RUN_NODEJS= Option: 
+echo:
+if %RUN_NODEJS%==0 (
+echo Opening the launcher...
+echo:
+start %cd%\launcher.bat
+PING -n 3 127.0.0.1>nul
+goto get
+) else if %RUN_NODEJS%==1 (
+goto get
+) else (
+echo You're supposed to choose.
+set /p RUN_NODEJS= Option: 
+)
+goto get
 
 :get
 echo Link:
@@ -102,7 +105,7 @@ echo:
 set /p FILEPATH= Path: 
 echo:
 echo Running Node.js...
-node load.js %VOICE% %TEXT% "%FILEPATH%\%FILE%"
+node "load.js" "%VOICE%" "%TEXT%" "%FILEPATH%\%FILE%"
 echo:
 echo File saved.
 echo:
@@ -112,12 +115,12 @@ echo Press 3 to exit
 echo:
 set /p OPTION= Option:
 if %OPTION%==1 (
-start "%FILEPATH%\%FILE%"
+start "" "%FILEPATH%\%FILE%"
 echo:
 set /p EXIT= Press Enter to exit.
 exit
 ) else if %OPTION%==2 (
-start "%FILEPATH%\"
+start explorer.exe "%FILEPATH%\"
 echo:
 set /p EXIT= Press Enter to exit.
 exit
