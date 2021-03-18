@@ -2256,238 +2256,6 @@
 			"source": "vocalware",
 			"desc": "Somsi"
 		},
-		"callieq": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "CallieQ",
-			"desc": "CallieQ"
-		},
-		"conrad": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Conrad",
-			"desc": "Conrad"
-		},
-		"designerdave": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "DesignerDave",
-			"desc": "Designer Dave"
-		},
-		"diesel": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Diesel",
-			"desc": "Diesel"
-		},
-		"dog": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Dog",
-			"desc": "Dog"
-		},
-		"evilgenius": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "EvilGenius",
-			"desc": "Evil Genius"
-		},
-		"frank": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Frank",
-			"desc": "Frank"
-		},
-		"frenchfry": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "French-fry",
-			"desc": "French-Fry"
-		},
-		"gregory": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Gregory",
-			"desc": "Gregory"
-		},
-		"jerkface": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "JerkFace",
-			"desc": "Jerkface"
-		},
-		"jerseygirl": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "JerseyGirl",
-			"desc": "Jersey Girl"
-		},
-		"kayla": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Kayla",
-			"desc": "Kayla"
-		},
-		"kevin": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Kevin",
-			"desc": "Kevin"
-		},
-		"kidaroo": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Kidaroo",
-			"desc": "Kidaroo"
-		},
-		"layo": {
-			"country": "NG",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Layo",
-			"desc": "Layo"
-		},
-		"princess": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Princess",
-			"desc": "Princess"
-		},
-		"ransomnote": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "RansomNote",
-			"desc": "Ransom Note"
-		},
-		"robot1": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Robot",
-			"desc": "Robot"
-		},
-		"shygirl": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "ShyGirl",
-			"desc": "Shy Girl"
-		},
-		"susan": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Susan",
-			"desc": "Susan (VoiceForge)"
-		},
-		"tamika": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Tamika",
-			"desc": "Tamika"
-		},
-		"tophat": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "TopHat",
-			"desc": "Top-Hat"
-		},
-		"vixen": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Vixen",
-			"desc": "Vixen"
-		},
-		"vlad": {
-			"country": "RU",
-			"language": "ru",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Vlad",
-			"desc": "Vlad"
-		},
-		"warrenpeas": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "WarrenPeas",
-			"desc": "Warren Peas"
-		},
-		"wiseguy": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Wiseguy",
-			"desc": "Wiseguy"
-		},
-		"zach": {
-			"country": "US",
-			"language": "en",
-			"gender": "M",
-			"source": "voiceforge",
-			"arg": "Zach",
-			"desc": "Zach"
-		},
-		"katrin": {
-			"country": "US",
-			"language": "de",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Katrin",
-			"desc": "Katrin"
-		},
-		"marta": {
-			"country": "MX",
-			"language": "es",
-			"gender": "F",
-			"source": "voiceforge",
-			"arg": "Marta",
-			"desc": "Marta"
-		},
 		"eric": {
 			"country": "US",
 			"language": "en",
@@ -3365,22 +3133,25 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Matthew",
 			"desc": "Matthew"
 		},
-		"kevin1": {
+		"kevin": {
 			"country": "US",
 			"language": "en",
 			"gender": "M",
-			"source": "pollyNeural",
+			"source": "polly",
+			"polly_engine": "neural",
 			"arg": "Kevin",
-			"desc": "Kevin (Polly)"
+			"desc": "Kevin"
 		},
 		"joanna": {
 			"country": "US",
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Joanna",
 			"desc": "Joanna"
 		},
@@ -3389,6 +3160,7 @@
 			"language": "pt",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ines",
 			"desc": "Ines"
 		},
@@ -3397,6 +3169,7 @@
 			"language": "ro",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Carmen",
 			"desc": "Carmen"
 		},
@@ -3405,6 +3178,7 @@
 			"language": "es",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Enrique",
 			"desc": "Enrique"
 		},
@@ -3413,6 +3187,7 @@
 			"language": "es",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Penelope",
 			"desc": "Penelope"
 		},
@@ -3421,6 +3196,7 @@
 			"language": "es",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Miguel",
 			"desc": "Miguel"
 		},
@@ -3429,6 +3205,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Salli",
 			"desc": "Salli"
 		},
@@ -3437,6 +3214,7 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Joey",
 			"desc": "Joey"
 		},
@@ -3445,6 +3223,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Kendra",
 			"desc": "Kendra"
 		},
@@ -3453,6 +3232,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Kimberly",
 			"desc": "Kimberly"
 		},
@@ -3461,6 +3241,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ivy",
 			"desc": "Ivy"
 		},
@@ -3469,6 +3250,7 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Justin",
 			"desc": "Justin"
 		},
@@ -3477,6 +3259,7 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Brian",
 			"desc": "Brian"
 		},
@@ -3485,6 +3268,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Emma",
 			"desc": "Emma"
 		},
@@ -3493,6 +3277,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Nicole",
 			"desc": "Nicole"
 		},
@@ -3501,6 +3286,7 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Russell",
 			"desc": "Russell"
 		},
@@ -3509,6 +3295,7 @@
 			"language": "en",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Raveena",
 			"desc": "Raveena"
 		},
@@ -3517,6 +3304,7 @@
 			"language": "cy",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Gwyneth",
 			"desc": "Gwyneth"
 		},
@@ -3533,6 +3321,7 @@
 			"language": "en",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Geraint",
 			"desc": "Geraint"
 		},
@@ -3541,6 +3330,7 @@
 			"language": "da",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Mads",
 			"desc": "Mads"
 		},
@@ -3549,6 +3339,7 @@
 			"language": "da",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Naja",
 			"desc": "Naja"
 		},
@@ -3557,6 +3348,7 @@
 			"language": "nl",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Lotte",
 			"desc": "Lotte"
 		},
@@ -3565,6 +3357,7 @@
 			"language": "nl",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ruben",
 			"desc": "Ruben"
 		},
@@ -3573,6 +3366,7 @@
 			"language": "fr",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Celine",
 			"desc": "Celine"
 		},
@@ -3581,6 +3375,7 @@
 			"language": "fr",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Mathieu",
 			"desc": "Mathieu"
 		},
@@ -3589,6 +3384,7 @@
 			"language": "fr",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Chantal",
 			"desc": "Chantal"
 		},
@@ -3597,6 +3393,7 @@
 			"language": "de",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Marlene",
 			"desc": "Marlene"
 		},
@@ -3605,6 +3402,7 @@
 			"language": "de",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Hans",
 			"desc": "Hans"
 		},
@@ -3613,6 +3411,7 @@
 			"language": "is",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Dora",
 			"desc": "Dora"
 		},
@@ -3621,6 +3420,7 @@
 			"language": "is",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Karl",
 			"desc": "Karl"
 		},
@@ -3645,6 +3445,7 @@
 			"language": "it",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Carla",
 			"desc": "Carla"
 		},
@@ -3653,6 +3454,7 @@
 			"language": "it",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Giorgio",
 			"desc": "Giorgio"
 		},
@@ -3661,6 +3463,7 @@
 			"language": "pl",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ewa",
 			"desc": "Ewa"
 		},
@@ -3669,6 +3472,7 @@
 			"language": "pl",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Jacek",
 			"desc": "Jacek"
 		},
@@ -3677,6 +3481,7 @@
 			"language": "pl",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Maja",
 			"desc": "Maja"
 		},
@@ -3685,6 +3490,7 @@
 			"language": "pl",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Jan",
 			"desc": "Jan"
 		},
@@ -3693,6 +3499,7 @@
 			"language": "pt",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Cristiano",
 			"desc": "Cristiano"
 		},
@@ -3701,6 +3508,7 @@
 			"language": "pt",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ines",
 			"desc": "Ines"
 		},
@@ -3709,6 +3517,7 @@
 			"language": "pt",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Vitoria",
 			"desc": "Vitoria"
 		},
@@ -3717,6 +3526,7 @@
 			"language": "pt",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Ricardo",
 			"desc": "Ricardo"
 		},
@@ -3725,6 +3535,7 @@
 			"language": "ru",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Tatyana",
 			"desc": "Tatyana"
 		},
@@ -3733,6 +3544,7 @@
 			"language": "ru",
 			"gender": "M",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Maxim",
 			"desc": "Maxim"
 		},
@@ -3741,6 +3553,7 @@
 			"language": "es",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Conchita",
 			"desc": "Conchita"
 		},
@@ -3749,6 +3562,7 @@
 			"language": "sv",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Astrid",
 			"desc": "Astrid"
 		},
@@ -3757,6 +3571,7 @@
 			"language": "nb",
 			"gender": "F",
 			"source": "polly",
+			"polly_engine": "standard",
 			"arg": "Liv",
 			"desc": "Liv"
 		},
