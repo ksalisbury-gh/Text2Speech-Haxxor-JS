@@ -18,7 +18,7 @@ module.exports = (voiceName, text) => {
 	return new Promise(async (res, rej) => {
 		const voice = voices[voiceName];
 		switch (voice.source) {
-			case "polly1": {
+			case "polly": {
 				https.get('https://voicemaker.in/', r => {
 					const cookie = r.headers['set-cookie'];
 					var req = https.request({
@@ -50,7 +50,7 @@ module.exports = (voiceName, text) => {
 				});
 				break;
 			}
-			case "polly1": {
+			case "pollyNeural": {
 				https.get('https://voicemaker.in/', r => {
 					const cookie = r.headers['set-cookie'];
 					var req = https.request({
