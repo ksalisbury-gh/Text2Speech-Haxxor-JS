@@ -19,90 +19,69 @@ module.exports = (voiceName, text) => {
 		const voice = voices[voiceName];
 		switch (voice.source) {
 			case "polly1": {
-                var req = https.request({
-                        hostname: "voicemaker.in",
+				https.get('https://voicemaker.in/', r => {
+					const cookie = r.headers['set-cookie'];
+					var req = https.request({
+						hostname: "voicemaker.in",
 						port: "443",
-                        path: "/voice/standard",
-                        method: "POST",
-                        headers: {
+						path: "/voice/standard",
+						method: "POST",
+						headers: {
 							"content-type": "application/json",
-							cookie: "__cfduid=dea5a80a27d2fbaa14bb2f3c006e2b6401612476329; connect.sid=s%3AaPvH6lwiFtj6xbRGpiXUtRObjiNSJdUE.0IoDTJibP7XtLMTLt3DGFlOfv4Nee%2BN%2B0eQvsr9fWm0; __stripe_mid=0a37ccc8-cc13-474d-97da-aa0a5f9f47398bdf7a; __stripe_sid=d7b84afb-50aa-4813-8e33-d69585f09dd94ce8c7",
+							cookie: cookie,
 							"csrf-token": "",
-                            origin: "https://voicemaker.in",
+							origin: "https://voicemaker.in",
 							referer: "https://voicemaker.in/",
 							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
-                            "x-requested-with": "XMLHttpRequest",
-                        },
-                    },
-                    (r) => {
+							"x-requested-with": "XMLHttpRequest",
+						},
+					},
+					(r) => {
 						var buffers = [];
 						r.on("data", (b) => buffers.push(b));
-                        r.on("end", () => {
+						r.on("end", () => {
 							var json = JSON.parse(Buffer.concat(buffers));
-							get(`https://voicemaker.in${json.path}`).then(res).catch(rej);
+							get(`https://voicemaker.in${json.path.replace(".", "")}`).then(res).catch(rej);
 						});
 						r.on("error", rej);
 					});
 					req.write(`{"Engine":"standard","Provider":"ai101","OutputFormat":"mp3","VoiceId":"${voice.arg}","LanguageCode":"${voice.language}-${voice.country}","SampleRate":"22050","effect":"default","master_VC":"advanced","speed":"0","master_volume":"0","pitch":"0","Text":"${text}","TextType":"text","fileName":""}`);
 					req.end();
-					break;
+				});
+				break;
 			}
-			case "pollyNeural": {
-                var req = https.request({
-                        hostname: "voicemaker.in",
+			case "polly1": {
+				https.get('https://voicemaker.in/', r => {
+					const cookie = r.headers['set-cookie'];
+					var req = https.request({
+						hostname: "voicemaker.in",
 						port: "443",
-                        path: "/voice/standard",
-                        method: "POST",
-                        headers: {
+						path: "/voice/standard",
+						method: "POST",
+						headers: {
 							"content-type": "application/json",
-							cookie: "__cfduid=dea5a80a27d2fbaa14bb2f3c006e2b6401612476329; connect.sid=s%3AaPvH6lwiFtj6xbRGpiXUtRObjiNSJdUE.0IoDTJibP7XtLMTLt3DGFlOfv4Nee%2BN%2B0eQvsr9fWm0; __stripe_mid=0a37ccc8-cc13-474d-97da-aa0a5f9f47398bdf7a; __stripe_sid=d7b84afb-50aa-4813-8e33-d69585f09dd94ce8c7",
+							cookie: cookie,
 							"csrf-token": "",
-                            origin: "https://voicemaker.in",
+							origin: "https://voicemaker.in",
 							referer: "https://voicemaker.in/",
 							"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36",
-                            "x-requested-with": "XMLHttpRequest",
-                        },
-                    },
-                    (r) => {
+							"x-requested-with": "XMLHttpRequest",
+						},
+					},
+					(r) => {
 						var buffers = [];
 						r.on("data", (b) => buffers.push(b));
-                        r.on("end", () => {
+						r.on("end", () => {
 							var json = JSON.parse(Buffer.concat(buffers));
-							get(`https://voicemaker.in${json.path}`).then(res).catch(rej);
+							get(`https://voicemaker.in${json.path.replace(".", "")}`).then(res).catch(rej);
 						});
 						r.on("error", rej);
 					});
 					req.write(`{"Engine":"neural","Provider":"ai101","OutputFormat":"mp3","VoiceId":"${voice.arg}","LanguageCode":"${voice.language}-${voice.country}","SampleRate":"22050","effect":"default","master_VC":"advanced","speed":"0","master_volume":"0","pitch":"0","Text":"${text}","TextType":"text","fileName":""}`);
 					req.end();
-					break;
+				});
+				break;
 			}
-            case "polly": {
-                var buffers = [];
-                var req = https.request({
-                        hostname: "pollyvoices.com",
-                        port: "443",
-                        path: "/api/sound/add",
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                        },
-                    },
-                    (r) => {
-                        r.on("data", (b) => buffers.push(b));
-                        r.on("end", () => {
-                            var json = JSON.parse(Buffer.concat(buffers));
-                            if (json.file) get(`https://pollyvoices.com${json.file}`).then(res);
-                            else rej();
-                        });
-                    }
-                );
-                req.write(qs.encode({
-                    text: text,
-                    voice: voice.arg
-                }));
-                req.end();
-                break;
-            }
 			case "cepstral": {
 				https.get('https://www.cepstral.com/en/demos', r => {
 					const cookie = r.headers['set-cookie'];
