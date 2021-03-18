@@ -1,51 +1,38 @@
-const cp = require("child_process");
-const info = require("./info.json");
-const load = require("./main");
+const loadPost = require("../misc/post_body");
+const mp3Duration = require("mp3-duration");
+const voices = require("./info").voices;
+const asset = require("../asset/main");
+const util = require("../misc/util");
+const tts = require("./main");
 const http = require("http");
-const url = require("url");
-const args = process.argv;
-const fs = require("fs");
 
-if (args.length > 4) {
-    load(args[2], args[3]).then((buffer) => {
-        fs.writeFileSync(args[4], buffer);
-        switch (args[5]) {
-            case undefined:
-                break;
-            case "ffplay":
-            case "ffprobe":
-            default:
-                cp.execSync(`${args[5]} ${args[4]}`);
-                break;
-        }
-    });
-} else if (args[2] == "list") {
-    console.log("LANGUAGES:", info.languages);
-    console.log("\nVOICES:");
-    const t = {};
-    for (let i in info.voices) {
-        let l = info.voices[i].language;
-        (t[l] = t[l] || new Set()).add(i);
-    }
-    console.dir(t, {
-        maxArrayLength: null,
-        compact: false,
-        sorted: true,
-    });
-} else
-http
-    .createServer(async (req, res) => {
-        const u = url.parse(req.url, true);
-        if (u.pathname == "/tts.mp3") {
-            const query = u.query;
-            try {
-                const buffer = await load(query.voice, query.text);
-                res.setHeader("Content-Type", "audio/mp3");
-                res.end(buffer);
-            } catch {
-                res.statusCode = 400;
-                res.end();
-            }
-        }
-    })
-    .listen(process.env.PORT || process.env.SERVER_PORT || 666);
+/**
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse} res
+ * @param {import("url").UrlWithParsedQuery} url
+ * @returns {boolean}
+ */
+module.exports = function (req, res, url) {
+	if (req.method != "POST" || url.path != "/goapi/convertTextToSoundAsset/") return;
+	loadPost(req, res).then(([data, mId]) => {
+		tts(data.voice, data.text)
+			.then((buffer) => {
+				mp3Duration(buffer, (e, d) => {
+					var dur = d * 1e3;
+					if (e || !dur) {
+						return res.end(1 + util.xmlFail("Unable to retrieve MP3 stream."));
+					}
+
+					const title = `[${voices[data.voice].desc}] ${data.text}`;
+					const id = asset.save(buffer, mId, "tts", "mp3");
+					res.end(
+						`0<response><asset><id>${id}</id><enc_asset_id>${id}</enc_asset_id><type>sound</type><subtype>tts</subtype><title>${title}</title><published>0</published><tags></tags><duration>${dur}</duration><downloadtype>progressive</downloadtype><file>${id}</file></asset></response>`
+					);
+				});
+			})
+			.catch((e) => {
+				res.end(1 + util.xmlFail(e));
+			});
+	});
+	return true;
+};

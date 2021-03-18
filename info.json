@@ -472,14 +472,6 @@
 			"arg": "Amy",
 			"desc": "Amy (Polly)"
 		},
-		"allison1": {
-			"country": "US",
-			"language": "en",
-			"gender": "F",
-			"source": "cepstral",
-			"arg": "Allison",
-			"desc": "Allison (Cepstral)"
-		},
 		"allison2": {
 			"country": "US",
 			"language": "en",
@@ -616,7 +608,15 @@
 			"arg": "en-GB_KateV3Voice",
 			"desc": "KateV3 (Watson)"
 		},
-		"amy2": {
+		"allison_cepstral": {
+			"country": "US",
+			"language": "en",
+			"gender": "F",
+			"source": "cepstral",
+			"arg": "Allison",
+			"desc": "Allison (Cepstral)"
+		},
+		"amy_cepstral": {
 			"country": "US",
 			"language": "en",
 			"gender": "F",
@@ -640,7 +640,7 @@
 			"arg": "Callie",
 			"desc": "Callie"
 		},
-		"charlie1": {
+		"charlie_cepstral": {
 			"country": "US",
 			"language": "en",
 			"gender": "M",
@@ -662,7 +662,7 @@
 			"gender": "M",
 			"source": "cepstral",
 			"arg": "Damien",
-			"desc": "Scary Voice (Damien)"
+			"desc": "Damien"
 		},
 		"david": {
 			"country": "US",
@@ -704,7 +704,7 @@
 			"arg": "Emily",
 			"desc": "Emily"
 		},
-		"linda1": {
+		"linda_cepstral": {
 			"country": "US",
 			"language": "en",
 			"gender": "F",
@@ -718,7 +718,7 @@
 			"gender": "M",
 			"source": "cepstral",
 			"arg": "Robin",
-			"desc": "Tween Girl (Robin)"
+			"desc": "Robin"
 		},
 		"shouty": {
 			"country": "US",
@@ -736,7 +736,7 @@
 			"arg": "Walter",
 			"desc": "Walter"
 		},
-		"william2": {
+		"william": {
 			"country": "US",
 			"language": "en",
 			"gender": "M",
@@ -776,13 +776,13 @@
 			"arg": "Vittoria",
 			"desc": "Vittoria"
 		},
-		"katrin2": {
+		"katrin_cepstral": {
 			"country": "DE",
 			"language": "de",
 			"gender": "F",
 			"source": "cepstral",
 			"arg": "Katrin",
-			"desc": "Katrin (VoiceForge)"
+			"desc": "Katrin (Cepstral)"
 		},
 		"matthias": {
 			"country": "DE",
@@ -791,6 +791,38 @@
 			"source": "cepstral",
 			"arg": "Matthias",
 			"desc": "Matthias"
+		},
+		"isabelle": {
+			"country": "CA",
+			"language": "fr",
+			"gender": "F",
+			"source": "cepstral",
+			"arg": "Isabelle",
+			"desc": "Isabelle"
+		},
+		"jean-pierre": {
+			"country": "CA",
+			"language": "fr",
+			"gender": "M",
+			"source": "cepstral",
+			"arg": "Jean-Pierre",
+			"desc": "Jean-Pierre"
+		},
+		"alejandra": {
+			"country": "MX",
+			"language": "es",
+			"gender": "F",
+			"source": "cepstral",
+			"arg": "Alejandra",
+			"desc": "Alejandra"
+		},
+		"miguel_cepstral": {
+			"country": "MX",
+			"language": "es",
+			"gender": "M",
+			"source": "cepstral",
+			"arg": "Miguel",
+			"desc": "Miguel (Cepstral)"
 		},
 		"birgit": {
 			"country": "DE",
@@ -967,30 +999,6 @@
 			"source": "cepstral",
 			"arg": "Isabelle",
 			"desc": "Isabelle"
-		},
-		"jean-pierre": {
-			"country": "CA",
-			"language": "fr",
-			"gender": "M",
-			"source": "cepstral",
-			"arg": "Jean-Pierre",
-			"desc": "Jean-Pierre"
-		},
-		"alejandra": {
-			"country": "MX",
-			"language": "es",
-			"gender": "F",
-			"source": "cepstral",
-			"arg": "Alejandra",
-			"desc": "Alejandra"
-		},
-		"miguel1": {
-			"country": "MX",
-			"language": "es",
-			"gender": "M",
-			"source": "cepstral",
-			"arg": "Miguel",
-			"desc": "Miguel (VoiceForge)"
 		},
 		"laila": {
 			"country": "SA",

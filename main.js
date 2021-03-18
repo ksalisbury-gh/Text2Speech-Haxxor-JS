@@ -38,13 +38,8 @@ module.exports = (voiceName, text) => {
 						var buffers = [];
 						r.on("data", (b) => buffers.push(b));
                         r.on("end", () => {
-							const json = Buffer.concat(buffers);
-							const beg = json.indexOf('"path":') + 9;
-					        const end = json.indexOf('",', beg);
-					        const sub = json.subarray(beg, end).toString();
-							console.log("Successfully retrieved MP3 stream:");
-							console.log(`https://voicemaker.in${sub}`);
-							get(`https://voicemaker.in${sub}`).then(res).catch(rej);
+							var json = JSON.parse(Buffer.concat(buffers));
+							get(`https://voicemaker.in${json.path}`).then(res).catch(rej);
 						});
 						r.on("error", rej);
 					});
@@ -72,13 +67,8 @@ module.exports = (voiceName, text) => {
 						var buffers = [];
 						r.on("data", (b) => buffers.push(b));
                         r.on("end", () => {
-							const json = Buffer.concat(buffers);
-							const beg = json.indexOf('"path":') + 9;
-					        const end = json.indexOf('",', beg);
-					        const sub = json.subarray(beg, end).toString();
-							console.log("Successfully retrieved MP3 stream:");
-							console.log(`https://voicemaker.in${sub}`);
-							get(`https://voicemaker.in${sub}`).then(res).catch(rej);
+							var json = JSON.parse(Buffer.concat(buffers));
+							get(`https://voicemaker.in${json.path}`).then(res).catch(rej);
 						});
 						r.on("error", rej);
 					});
@@ -113,32 +103,30 @@ module.exports = (voiceName, text) => {
                 req.end();
                 break;
             }
-			case "cepstral":
-			case "voiceforge": {
-				https.get("https://www.voiceforge.com/demo", (r) => {
-					const cookie = r.headers["set-cookie"];
+			case "cepstral": {
+				https.get('https://www.cepstral.com/en/demos', r => {
+					const cookie = r.headers['set-cookie'];
 					var q = qs.encode({
-						voice: voice.arg,
 						voiceText: text,
+						voice: voice.arg,
+						createTime: 666,
+						rate: 170,
+						pitch: 1,
+						sfx: 'none',
 					});
 					var buffers = [];
-					https.get(
-						{
-							host: "www.voiceforge.com",
-							path: `/demos/createAudio.php?${q}`,
-							headers: { Cookie: cookie },
-						},
-						(r) => {
-							r.on("data", (b) => buffers.push(b));
-							r.on("end", () => {
-								const html = Buffer.concat(buffers);
-								const beg = html.indexOf('id="mp3Source" src="') + 20;
-								const end = html.indexOf('"', beg);
-								const loc = html.subarray(beg, end).toString();
-								get(`https://www.voiceforge.com${loc}`).then(res).catch(rej);
-							});
-						}
-					);
+					var req = https.get({
+						host: 'www.cepstral.com',
+						path: `/demos/createAudio.php?${q}`,
+						headers: { Cookie: cookie },
+						method: 'GET',
+					}, r => {
+						r.on('data', b => buffers.push(b));
+						r.on('end', () => {
+							var json = JSON.parse(Buffer.concat(buffers));
+							get(`https://www.cepstral.com${json.mp3_loc}`).then(res).catch(rej);
+						})
+					});
 				});
 				break;
 			}
@@ -166,27 +154,6 @@ module.exports = (voiceName, text) => {
 							"User-Agent":
 								"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36",
 						},
-					},
-					(r) => {
-						var buffers = [];
-						r.on("data", (d) => buffers.push(d));
-						r.on("end", () => res(Buffer.concat(buffers)));
-						r.on("error", rej);
-					}
-				);
-				break;
-			}
-			case "voicery": {
-				var q = qs.encode({
-					text: text,
-					speaker: voice.arg,
-					ssml: text.includes("<"),
-					//style: 'default',
-				});
-				https.get(
-					{
-						host: "www.voicery.com",
-						path: `/api/generate?${q}`,
 					},
 					(r) => {
 						var buffers = [];
@@ -305,13 +272,8 @@ module.exports = (voiceName, text) => {
                     (r) => {
                         r.on("data", (b) => buffers.push(b));
                         r.on("end", () => {
-                            const json = Buffer.concat(buffers);
-							const beg = json.indexOf(',"snd_url":"') + 12;
-							const end = json.indexOf('",', beg);
-							const sub = json.subarray(beg, end).toString();
-							console.log("Successfully retrieved MP3 stream:");
-							console.log(sub);
-							get(sub).then(res).catch(rej);
+                            var json = JSON.parse(Buffer.concat(buffers));
+							get(`${json.snd_url}`).then(res).catch(rej);
                         });
                     }
                 );
@@ -420,12 +382,8 @@ module.exports = (voiceName, text) => {
 						var buffers = [];
 						r.on("data", (b) => buffers.push(b));
                         r.on("end", () => {
-							const json = Buffer.concat(buffers);
-							const beg = json.indexOf('"url":') + 7;
-					        const end = json.indexOf('"}}', beg);
-					        const sub = json.subarray(beg, end).toString();
-							console.log(sub);
-							get(sub).then(res).catch(rej);
+							var json = JSON.parse(Buffer.concat(buffers));
+							get(`${json.url}`).then(res).catch(rej);
 						});
 						r.on("error", rej);
 					});
