@@ -50,6 +50,25 @@ module.exports = (voiceName, text) => {
 				});
 				break;
 			}
+			/* WARNING: NUANCE TTS API HAS BACKGROUND MUSIC */
+            case "nuance": {
+                var q = qs.encode({
+                    voice_name: voice.arg,
+                    speak_text: text,
+                });
+                https.get({
+                        host: "voicedemo.codefactoryglobal.com",
+                        path: `/generate_audio.asp?${q}`,
+                    },
+                    (r) => {
+                        var buffers = [];
+                        r.on("data", (d) => buffers.push(d));
+                        r.on("end", () => res(Buffer.concat(buffers)));
+                        r.on("error", rej);
+                    }
+                );
+                break;
+            }
 			case "cepstral": {
 				https.get('https://www.cepstral.com/en/demos', r => {
 					const cookie = r.headers['set-cookie'];
